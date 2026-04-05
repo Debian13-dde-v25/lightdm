@@ -6,8 +6,9 @@ Index: b/src/wayland-session.c
  }
  
  static void
-+wayland_session_stop (WaylandSession *session)
++wayland_session_stop (DisplayServer *server)
 +{
++    WaylandSession *session = WAYLAND_SESSION (server);
 +    WaylandSessionPrivate *priv = wayland_session_get_instance_private (session);
 +
 +    if (priv->have_vt_ref)
@@ -16,7 +17,7 @@ Index: b/src/wayland-session.c
 +        priv->have_vt_ref = FALSE;
 +    }
 +
-+    DISPLAY_SERVER_CLASS (wayland_session_parent_class)->stop (DISPLAY_SERVER (session));
++    DISPLAY_SERVER_CLASS (wayland_session_parent_class)->stop (server);
 +}
 +
 +static void
