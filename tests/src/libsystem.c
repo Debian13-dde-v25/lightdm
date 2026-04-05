@@ -73,6 +73,12 @@ struct pam_handle
     struct pam_conv conversation;
 };
 
+/* glibc no longer declares these internal wrappers in public headers. */
+int __xstat (int version, const char *path, struct stat *buf);
+int __xstat64 (int version, const char *path, struct stat64 *buf);
+int __fxstatat (int ver, int dirfd, const char *pathname, struct stat *buf, int flags);
+int __fxstatat64 (int ver, int dirfd, const char *pathname, struct stat64 *buf, int flags);
+
 int
 gethostname (char *name, size_t len)
 {
