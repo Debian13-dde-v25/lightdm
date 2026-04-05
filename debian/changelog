@@ -1,4 +1,4 @@
-lightdm (1.30.0+0deepin6) unstable; urgency=medium
+lightdm (1.30.0-0deepin6) unstable; urgency=medium
 
   * fix: adjust OOMScore for lightdm service
 

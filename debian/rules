@@ -8,6 +8,7 @@ export DEB_CXXFLAGS_MAINT_APPEND=-fvisibility=hidden
 export DEB_BUILD_MAINT_OPTIONS=hardening=+all
 
 override_dh_auto_configure:
+	autoreconf -fiv
 	dh_auto_configure -- \
 		--with-greeter-user=lightdm \
 		--with-user-session=lightdm-xsession \
